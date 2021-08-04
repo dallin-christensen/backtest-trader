@@ -10,9 +10,6 @@ const candleData = []
 
 
 const dataReader = (results) => {
-  // win percentage
-  // win percentage per year
-
   console.log('wins', results.wins.length)
   console.log('losses', results.losses.length)
   console.log('total', results.totalTrades)
@@ -42,19 +39,14 @@ const dataReader = (results) => {
 
 
   Object.keys(years).forEach(year => {
-    console.log(`${year} win percentage`, (years[year].length/(years[year].length + (yearsLosses?.[year]?.length || 0))))
+    console.log(`\t ${year} win percentage`, (years[year].length/(years[year].length + (yearsLosses?.[year]?.length || 0))))
   })
 
 }
 
 const start = () => {
   const results = compareOpenAndCloseBuyingCandleType(candleData, 15, true, 0.002, 0.007)
-
-  // console.log(candleData)
-
   dataReader(results)
-
-  console.log(results.wins[0])
 }
 
 
